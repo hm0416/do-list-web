@@ -2,7 +2,7 @@ import './App.css'
 import ToDo from './pages/ToDo'
 import NavBar from './components/NavBar'
 import { Routes, Route } from 'react-router-dom'
-import Calendar from './pages/Calendar'
+import CalendarPage from './pages/CalendarPage'
 
 function App() {
   return (

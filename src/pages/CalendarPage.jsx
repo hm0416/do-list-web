@@ -9,4 +9,4 @@ function CalendarPage() {
     )
 }
 
-export default Calendar;
+export default CalendarPage;
