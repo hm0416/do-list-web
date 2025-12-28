@@ -11,6 +11,7 @@ function ToDo() {
 
     const addItem = (e) => {
         e.preventDefault();
+        if (!newItem.trim()) return;
         setTodoItems([...todoItems, { text: newItem, complete: false }])
         setNewItem(''); //clears the input after submitting 
     }
@@ -21,11 +22,10 @@ function ToDo() {
     }
 
     const markAsComplete = (index) => {
-        setTodoItems(prev => prev.map((item, i) => {
+        setTodoItems(prev => prev.map((item, i) =>
             (i === index) ? { ...item, complete: !item.complete } : item
-        }))
-
-        // for every item, if its the one we clicked on, toggle the complete to be the opposite of what its set to rn
+        ))
+        // toggles the complete flag for the clicked item
     }
 
     return (
@@ -33,7 +33,7 @@ function ToDo() {
             <h1>ToDo List</h1>
             <div className="todo-page">
                 <input type="text" placeholder="Add a new item" value={newItem} onChange={handleItemChange} />
-                <button onClick={addItem} type="onSubmit">Add Item</button>
+                <button onClick={addItem} type="button">Add Item</button>
             </div>
             <ol>
                 {todoItems.map((item, index) => {
